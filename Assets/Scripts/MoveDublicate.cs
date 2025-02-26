@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DiscMoveLogic : MonoBehaviour
+public class DiscMove : MonoBehaviour
 {
 
     // GameObjects Refrencess
@@ -16,7 +16,7 @@ public class DiscMoveLogic : MonoBehaviour
     GameObject endingDisc;
     // Move and Rotation Variables
     [SerializeField] private float moveDuration = 1.5f;
-    [SerializeField] private float rotationDegree = 120f;
+    [SerializeField] private float rotationDegree = 60f;
     [SerializeField] private bool isMoving = false;
 
     private void OnMouseDown()
@@ -33,7 +33,7 @@ public class DiscMoveLogic : MonoBehaviour
         {
             if (allDiscGameObjects[i].transform.position == startingPosition.position)
             {
-                startingDisc  = allDiscGameObjects[i];
+                startingDisc = allDiscGameObjects[i];
             }
             if (allDiscGameObjects[i].transform.position == centerPosition.position)
             {
@@ -50,7 +50,7 @@ public class DiscMoveLogic : MonoBehaviour
 
         // Mirror Disc Rotate
         Quaternion startingRotation = transform.rotation;
-        Quaternion targetRotation = startingRotation * Quaternion.Euler(0,0, rotationDegree);
+        Quaternion targetRotation = startingRotation * Quaternion.Euler(0, 0, rotationDegree);
 
         // Starting and Ending Position
         Transform startingpos = startingPosition;
