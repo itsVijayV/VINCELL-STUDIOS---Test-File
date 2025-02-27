@@ -31,19 +31,20 @@ public class DiscMoveLogic : MonoBehaviour
     {
         for (int i = 0; i < allDiscGameObjects.Length; i++)
         {
-            if (allDiscGameObjects[i].transform.position == startingPosition.position)
+            if (Vector3.Distance(allDiscGameObjects[i].transform.position, startingPosition.position) < 0.03f)
             {
-                startingDisc  = allDiscGameObjects[i];
+                startingDisc = allDiscGameObjects[i];
             }
-            if (allDiscGameObjects[i].transform.position == centerPosition.position)
+            if (Vector3.Distance(allDiscGameObjects[i].transform.position, centerPosition.position) < 0.03f)
             {
                 centerDisc = allDiscGameObjects[i];
             }
-            if (allDiscGameObjects[i].transform.position == EndingPosition.position)
+            if (Vector3.Distance(allDiscGameObjects[i].transform.position, EndingPosition.position) < 0.03f)
             {
                 endingDisc = allDiscGameObjects[i];
             }
         }
+
 
         isMoving = true;
         float elapsedTime = 0;
@@ -61,7 +62,7 @@ public class DiscMoveLogic : MonoBehaviour
         Transform centerTargetPos = endPos;
         Transform endTargetPos = startingpos;
 
-        while (elapsedTime < moveDuration)
+        while (elapsedTime < moveDuration + 0.2f)
         {
             float smoothTransition = Mathf.SmoothStep(0, 1, elapsedTime / moveDuration);
             elapsedTime += Time.deltaTime;

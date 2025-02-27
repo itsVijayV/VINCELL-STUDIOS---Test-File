@@ -18,7 +18,7 @@ public class OuterDisk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lightActivatePoint.transform.position == thisDisk.transform.position)
+        if (lightActivatePoint.transform.position == thisDisk.transform.position || thisDisk.transform.position == centerPoint.position)
         {
             for (int i = 0; i < lightBeam.Length; i++)
             {
